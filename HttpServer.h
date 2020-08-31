@@ -5,8 +5,8 @@
 extern "C" {
 #endif
 
-int HttpServerStart();
-void HttpServerStop();
+int HttpServerStart(const char* documentRoot);
+void HttpServerStop(void);
 
 #ifdef __cplusplus
 }
