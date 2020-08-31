@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20717F224FD3CD3004C4BAC /* mongoose.c in Sources */ = {isa = PBXBuildFile; fileRef = D20717F024FD3CD3004C4BAC /* mongoose.c */; };
 		D2F00F1A24FCB3E2004189E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F00F1924FCB3E2004189E5 /* AppDelegate.m */; };
 		D2F00F1D24FCB3E2004189E5 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F00F1C24FCB3E2004189E5 /* SceneDelegate.m */; };
 		D2F00F2024FCB3E2004189E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F00F1F24FCB3E2004189E5 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D20717F024FD3CD3004C4BAC /* mongoose.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = mongoose.c; path = ../../mongoose/mongoose.c; sourceTree = "<group>"; };
+		D20717F124FD3CD3004C4BAC /* mongoose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = mongoose.h; path = ../../mongoose/mongoose.h; sourceTree = "<group>"; };
 		D2F00F1524FCB3E2004189E5 /* mongoose-webdav-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mongoose-webdav-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F00F1824FCB3E2004189E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D2F00F1924FCB3E2004189E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -42,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20717EF24FD3C8B004C4BAC /* mongoose */ = {
+			isa = PBXGroup;
+			children = (
+				D20717F024FD3CD3004C4BAC /* mongoose.c */,
+				D20717F124FD3CD3004C4BAC /* mongoose.h */,
+			);
+			name = mongoose;
+			sourceTree = "<group>";
+		};
 		D2F00F0C24FCB3E2004189E5 = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +73,7 @@
 		D2F00F1724FCB3E2004189E5 /* mongoose-webdav-example */ = {
 			isa = PBXGroup;
 			children = (
+				D20717EF24FD3C8B004C4BAC /* mongoose */,
 				D2F00F1824FCB3E2004189E5 /* AppDelegate.h */,
 				D2F00F1924FCB3E2004189E5 /* AppDelegate.m */,
 				D2F00F1B24FCB3E2004189E5 /* SceneDelegate.h */,
@@ -147,6 +160,7 @@
 			files = (
 				D2F00F2024FCB3E2004189E5 /* ViewController.m in Sources */,
 				D2F00F1A24FCB3E2004189E5 /* AppDelegate.m in Sources */,
+				D20717F224FD3CD3004C4BAC /* mongoose.c in Sources */,
 				D2F00F2B24FCB3E4004189E5 /* main.m in Sources */,
 				D2F00F1D24FCB3E2004189E5 /* SceneDelegate.m in Sources */,
 			);
