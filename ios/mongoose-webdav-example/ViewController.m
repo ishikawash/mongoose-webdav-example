@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import "HttpServer.h"
 
 @interface ViewController ()
 
@@ -21,9 +22,11 @@
 - (IBAction)buttonDidPressed:(UIButton *)sender {
     sender.selected = ! sender.selected;
     if (sender.selected) {
-        NSLog(@"Selected");
+        HttpServerStart();
+        NSLog(@"Start...");
     } else {
-        NSLog(@"Not Selected");
+        HttpServerStop();
+        NSLog(@"Stop...");
     }
 }
 
