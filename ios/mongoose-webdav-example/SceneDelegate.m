@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.m
-//  mongoose-webdav-example
-//
-//  Created by ishikawa shinya on 2020/08/31.
-//
-
 #import "SceneDelegate.h"
 
 @interface SceneDelegate ()
