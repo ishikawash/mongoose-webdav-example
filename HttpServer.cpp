@@ -5,10 +5,17 @@
 
 namespace {
 
+enum class ServerState
+{
+    Ready,
+    Running,
+    Finished
+};
+
 struct mg_serve_http_opts httpOptions_;
 std::string address_;
 std::string documentRoot_;
-bool running_ = false;
+ServerState state_ = ServerState::Ready;
 
 void handleEvent(struct mg_connection *nc, int ev, void *p)
 {
@@ -28,7 +35,6 @@ void mainLoop()
         printf("Failed to bind address '%s' to server.\n", address_.c_str());
         return;
     }
-    printf("Starting web server on %s\n", address_.c_str());
 
     mg_set_protocol_http_websocket(nc);
     httpOptions_.document_root = documentRoot_.c_str();
@@ -36,18 +42,21 @@ void mainLoop()
     httpOptions_.dav_document_root = httpOptions_.document_root;
     httpOptions_.dav_auth_file = "-";
 
-    running_ = true;
-    while (running_) {
+    printf("Starting web server on %s\n", address_.c_str());
+
+    state_ = ServerState::Running;
+    while (state_ == ServerState::Running) {
         mg_mgr_poll(&mgr, 1000);
     }
     mg_mgr_free(&mgr);
+    state_ = ServerState::Ready;
 }
 
 }
 
 int HttpServerStart(int port, const char* documentRootPath)
 {
-    if (running_) {
+    if (state_ != ServerState::Ready) {
         return 0;
     }
     if (documentRootPath == NULL) {
@@ -65,5 +74,7 @@ int HttpServerStart(int port, const char* documentRootPath)
 
 void HttpServerStop()
 {
-    running_ = false;
+    if (state_ == ServerState::Running) {
+        state_ = ServerState::Finished;
+    }
 }
