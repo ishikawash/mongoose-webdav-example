@@ -7,6 +7,7 @@ extern "C" {
 
 int HttpServerStart(int port, const char* documentRootPath);
 void HttpServerStop(void);
+int HttpServerIsRunning(void);
 
 #ifdef __cplusplus
 }

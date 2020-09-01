@@ -78,3 +78,8 @@ void HttpServerStop()
         state_ = ServerState::Finished;
     }
 }
+
+int HttpServerIsRunning(void)
+{
+    return (state_ == ServerState::Running);
+}

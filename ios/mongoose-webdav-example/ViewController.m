@@ -27,16 +27,20 @@ NSString* documentRoot_ = nil;
 }
 
 - (IBAction)buttonDidPressed:(UIButton *)sender {
-    sender.selected = ! sender.selected;
-    if (sender.selected) {
-        const char* path = (documentRoot_ != nil) ? [documentRoot_ UTF8String] : NULL;
-        HttpServerStart(10080, path);
-        NSLog(@"Start...");
-    } else {
+    if (HttpServerIsRunning()) {
         HttpServerStop();
-        NSLog(@"Stop...");
+        [self changeButtonState:sender by:NO];
+    } else {
+        const char* path = (documentRoot_ != nil) ? [documentRoot_ UTF8String] : NULL;
+        if (HttpServerStart(10080, path)) {
+            [self changeButtonState:sender by:YES];
+        }
     }
 }
 
+- (void)changeButtonState:(UIButton*)button by:(BOOL)enabled {
+    NSString* title = enabled ? @"Stop" : @"Start";
+    [button setTitle:title forState:UIControlStateNormal];
+}
 
 @end
