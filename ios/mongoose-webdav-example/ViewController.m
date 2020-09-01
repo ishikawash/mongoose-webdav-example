@@ -30,7 +30,7 @@ NSString* documentRoot_ = nil;
     sender.selected = ! sender.selected;
     if (sender.selected) {
         const char* path = (documentRoot_ != nil) ? [documentRoot_ UTF8String] : NULL;
-        HttpServerStart(path);
+        HttpServerStart(10080, path);
         NSLog(@"Start...");
     } else {
         HttpServerStop();
